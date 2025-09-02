@@ -4,8 +4,10 @@
 This SQL project is designed to analyze a sales dataset and apply a common data cleaning technique to handle outliers.  
 The script specifically identifies and updates outliers in the `quantityordered` column using the **Interquartile Range (IQR) method**.  
 
-The code is written to be clear and easy to follow, demonstrating a practical approach to **data quality management** in a SQL database.
-👉 **Note:** This project is part of the preparation for **Project 3 (SQL)**, an upcoming continuation project.
+The code is written to be clear and easy to follow, demonstrating a practical approach to **data quality management** in a SQL database.  
+
+👉 **Note:** This project is part of the preparation for **Project 3 (SQL)**, an upcoming continuation project.  
+
 ---
 
 ## ⚙️ Prerequisites
@@ -15,11 +17,29 @@ The code is written to be clear and easy to follow, demonstrating a practical ap
 
 ---
 
+## 🔧 Data Preparation
+Before performing outlier detection, the dataset required several preprocessing steps:  
+
+1. **Data Type Conversion**  
+   - Original table columns were all created as `VARCHAR`.  
+   - Used **ALTER / UPDATE DDL statements** to convert columns into the correct data type formats, such as:  
+     - `VARCHAR → DATETIME`  
+     - `VARCHAR → DECIMAL`  
+
+2. **Data Quality Checks**  
+   - Verified if columns contained `NULL` or blank values.  
+   - Applied handling strategies to clean incomplete or invalid data.  
+
+3. **Splitting Full Name Column**  
+   - Extracted `firstname` and `lastname` columns from the original `fullname` column for better data normalization.  
+
+---
+
 ## ✨ Key Features
 - **Outlier Detection**: Uses the `NTILE` window function to calculate quartiles (Q1 and Q3) and the Interquartile Range (IQR).  
-- **Dynamic Thresholds**: Calculates lower & upper bounds for outliers using the standard  Q1 − (1.5 × IQR), Q3 + (1.5 × IQR)
+- **Dynamic Thresholds**: Calculates lower & upper bounds for outliers using the standard: Q1 − (1.5 × IQR), Q3 + (1.5 × IQR)
 
-- **Data Cleaning**: Updates outlier values in `quantityordered` to the **average value** of the dataset (a common imputation method).
+- **Data Cleaning**: Updates outlier values in `quantityordered` to the **average value** of the dataset (a common imputation method).  
 
 ---
 
@@ -35,7 +55,7 @@ The script is divided into **two main parts**, executed sequentially:
 - **WHERE Clause** checks if the order exists in the identified outlier list.  
 - **SET Clause** replaces outlier values with the **average `quantityordered`** across the dataset.  
 
-This ensures that:
+This ensures that:  
 1. Outlier detection is isolated.  
 2. Data modification is done logically and cleanly.  
 
@@ -48,6 +68,11 @@ This ensures that:
 
 ## ✅ Summary
 This project demonstrates:
-- A practical example of **outlier detection** in SQL.  
+- A practical example of **data preparation and cleaning** in SQL.  
+- **Data type conversion** from raw `VARCHAR` fields to meaningful types (`DATETIME`, `DECIMAL`).  
+- **Null/blank data validation** and correction.  
+- **Full name normalization** into `firstname` and `lastname`.  
+- A practical example of **outlier detection** using the IQR method.  
 - A common **data cleaning technique** (replacing with dataset mean).  
 - Clear step-by-step logic for **data quality improvement**.  
+- Serves as **preparation for Project 3 (SQL)**.  
