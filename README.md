@@ -5,7 +5,7 @@ This SQL project is designed to analyze a sales dataset and apply a common data 
 The script specifically identifies and updates outliers in the `quantityordered` column using the **Interquartile Range (IQR) method**.  
 
 The code is written to be clear and easy to follow, demonstrating a practical approach to **data quality management** in a SQL database.
-
+👉 **Note:** This project is part of the preparation for **Project 3 (SQL)**, an upcoming continuation project.
 ---
 
 ## ⚙️ Prerequisites
@@ -42,7 +42,7 @@ This ensures that:
 ---
 
 ## 📂 File Structure
-- `sales_outlier_handling.sql` → Main SQL script  
+- `project1.sql` → Main SQL script  
 
 ---
 
