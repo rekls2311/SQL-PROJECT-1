@@ -33,6 +33,12 @@ Before performing outlier detection, the dataset required several preprocessing 
 3. **Splitting Full Name Column**  
    - Extracted `firstname` and `lastname` columns from the original `fullname` column for better data normalization.  
 
+4. **Date Feature Engineering**  
+   - Extracted **Month**, **Quarter**, and **Year** from the `orderdate` column (`DATETIME` type).  
+   - Created 3 new columns:  
+     - `order_month`  
+     - `order_quarter`  
+     - `order_year`  
 ---
 
 ## ✨ Key Features
@@ -72,6 +78,7 @@ This project demonstrates:
 - **Data type conversion** from raw `VARCHAR` fields to meaningful types (`DATETIME`, `DECIMAL`).  
 - **Null/blank data validation** and correction.  
 - **Full name normalization** into `firstname` and `lastname`.  
+- **Date feature extraction**: added `order_month`, `order_quarter`, and `order_year` from `orderdate`.  
 - A practical example of **outlier detection** using the IQR method.  
 - A common **data cleaning technique** (replacing with dataset mean).  
 - Clear step-by-step logic for **data quality improvement**.  
